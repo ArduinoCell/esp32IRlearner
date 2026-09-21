@@ -1,0 +1,12 @@
+# PlatformIO build output
+.pio/
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
