@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" font-family="monospace, system-ui">
+  <!-- Background -->
+  <rect width="900" height="520" fill="#0f172a" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#38bdf8" font-size="20" font-weight="bold">ESP32-WROOM-32U + VS1838B IR Receiver – Wiring Diagram</text>
+  <text x="450" y="58" text-anchor="middle" fill="#94a3b8" font-size="13">ESP32 IR Learner for Homey Pro 2023</text>
+
+  <!-- ═══════════════════════ ESP32 MODULE ════════════════════════════ -->
+  <rect x="300" y="90" width="300" height="300" rx="12" fill="#1e3a5f" stroke="#38bdf8" stroke-width="2"/>
+  <text x="450" y="115" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="bold">ESP32-WROOM-32U</text>
+  <text x="450" y="131" text-anchor="middle" fill="#94a3b8" font-size="11">(External Antenna)</text>
+
+  <!-- Antenna symbol top-right of chip -->
+  <line x1="575" y1="90" x2="575" y2="68" stroke="#22c55e" stroke-width="2.5"/>
+  <line x1="563" y1="80" x2="587" y2="80" stroke="#22c55e" stroke-width="2"/>
+  <line x1="567" y1="73" x2="583" y2="73" stroke="#22c55e" stroke-width="2"/>
+  <line x1="571" y1="68" x2="579" y2="68" stroke="#22c55e" stroke-width="2"/>
+  <text x="575" y="63" text-anchor="middle" fill="#22c55e" font-size="10">Ext. Antenna</text>
+
+  <!-- ESP32 Left Pins -->
+  <!-- 3V3 -->
+  <rect x="265" y="145" width="35" height="22" rx="4" fill="#22c55e" opacity=".8"/>
+  <text x="282" y="160" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">3.3V</text>
+  <line x1="300" y1="156" x2="265" y2="156" stroke="#22c55e" stroke-width="2"/>
+
+  <!-- GND -->
+  <rect x="265" y="178" width="35" height="22" rx="4" fill="#ef4444" opacity=".8"/>
+  <text x="282" y="193" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">GND</text>
+  <line x1="300" y1="189" x2="265" y2="189" stroke="#ef4444" stroke-width="2"/>
+
+  <!-- GPIO 15 -->
+  <rect x="255" y="211" width="45" height="22" rx="4" fill="#fbbf24" opacity=".9"/>
+  <text x="277" y="226" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">GPIO 15</text>
+  <line x1="300" y1="222" x2="255" y2="222" stroke="#fbbf24" stroke-width="2"/>
+
+  <!-- Pin labels inside the chip left side -->
+  <text x="310" y="160" fill="#94a3b8" font-size="11">3V3</text>
+  <text x="310" y="193" fill="#94a3b8" font-size="11">GND</text>
+  <text x="310" y="226" fill="#94a3b8" font-size="11">IO15</text>
+
+  <!-- USB / Flash label -->
+  <rect x="405" y="355" width="90" height="28" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+  <text x="450" y="374" text-anchor="middle" fill="#94a3b8" font-size="12">USB / Flash</text>
+
+  <!-- ═══════════════════════ TSOP / VS1838B ═════════════════════════ -->
+  <rect x="60" y="155" width="150" height="130" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="135" y="178" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="bold">VS1838B</text>
+  <text x="135" y="194" text-anchor="middle" fill="#94a3b8" font-size="11">38 kHz IR Receiver</text>
+
+  <!-- Dome shape for IR receiver -->
+  <ellipse cx="135" cy="230" rx="28" ry="20" fill="#0f172a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="135" y="234" text-anchor="middle" fill="#fbbf24" font-size="18">⬛</text>
+
+  <!-- Pin labels on sensor -->
+  <text x="78"  y="267" fill="#22c55e" font-size="11" font-weight="bold">VCC</text>
+  <text x="122" y="267" fill="#ef4444" font-size="11" font-weight="bold">GND</text>
+  <text x="163" y="267" fill="#fbbf24" font-size="11" font-weight="bold">OUT</text>
+
+  <!-- Pin lines from sensor down -->
+  <line x1="85"  y1="250" x2="85"  y2="270" stroke="#22c55e" stroke-width="2"/>
+  <line x1="135" y1="250" x2="135" y2="270" stroke="#ef4444" stroke-width="2"/>
+  <line x1="185" y1="250" x2="185" y2="270" stroke="#fbbf24" stroke-width="2"/>
+
+  <!-- ═══════════════════════ WIRES ═══════════════════════════════════ -->
+
+  <!-- VCC (green): sensor VCC → ESP32 3.3V pin -->
+  <polyline points="85,270 85,295 240,295 240,156 265,156"
+    fill="none" stroke="#22c55e" stroke-width="2.5" stroke-dasharray="none"/>
+  <circle cx="240" cy="156" r="4" fill="#22c55e"/>
+
+  <!-- GND (red): sensor GND → ESP32 GND pin -->
+  <polyline points="135,270 135,310 230,310 230,189 265,189"
+    fill="none" stroke="#ef4444" stroke-width="2.5"/>
+  <circle cx="230" cy="189" r="4" fill="#ef4444"/>
+
+  <!-- DATA (yellow): sensor OUT → ESP32 GPIO 15 -->
+  <polyline points="185,270 185,325 220,325 220,222 255,222"
+    fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+  <circle cx="220" cy="222" r="4" fill="#fbbf24"/>
+
+  <!-- ═══════════════════════ LEGEND ═══════════════════════════════════ -->
+  <rect x="620" y="100" width="250" height="200" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="745" y="124" text-anchor="middle" fill="#f1f5f9" font-size="13" font-weight="bold">Wire Legend</text>
+
+  <line x1="640" y1="148" x2="680" y2="148" stroke="#22c55e" stroke-width="3"/>
+  <text x="688" y="153" fill="#f1f5f9" font-size="12">VCC  → 3.3V</text>
+
+  <line x1="640" y1="176" x2="680" y2="176" stroke="#ef4444" stroke-width="3"/>
+  <text x="688" y="181" fill="#f1f5f9" font-size="12">GND  → GND</text>
+
+  <line x1="640" y1="204" x2="680" y2="204" stroke="#fbbf24" stroke-width="3"/>
+  <text x="688" y="209" fill="#f1f5f9" font-size="12">OUT  → GPIO 15</text>
+
+  <!-- Notes -->
+  <rect x="620" y="320" width="250" height="160" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="745" y="342" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="bold">Notes</text>
+  <text x="635" y="362" fill="#94a3b8" font-size="11">• Use ESP32-WROOM-32U</text>
+  <text x="635" y="380" fill="#94a3b8" font-size="11">  (U.FL connector variant)</text>
+  <text x="635" y="400" fill="#94a3b8" font-size="11">• Attach 2.4GHz antenna</text>
+  <text x="635" y="420" fill="#94a3b8" font-size="11">  to U.FL connector</text>
+  <text x="635" y="440" fill="#94a3b8" font-size="11">• IR receiver: VS1838B or</text>
+  <text x="635" y="460" fill="#94a3b8" font-size="11">  TSOP38238 (38kHz)</text>
+
+  <!-- ═══════════════════════ BOTTOM NOTE ════════════════════════════ -->
+  <text x="450" y="500" text-anchor="middle" fill="#475569" font-size="11">Open http://esp32-ir.local after flashing to access the web dashboard</text>
+</svg>
